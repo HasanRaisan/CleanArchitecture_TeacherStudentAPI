@@ -31,7 +31,7 @@ namespace TeacherStudentAPI.Controllers
 
             // RESTful Success: Use 201 Created with Location Header for resource creation.
             if (result.IsSuccess)
-                return CreatedAtRoute("GetStudentById", new { id = result.Data.Id }, result.Data);
+                return CreatedAtRoute("GetTeacherById", new { id = result.Data.Id }, result.Data);
 
             //  Centralized Failure Handling
             return result.ToActionResult();

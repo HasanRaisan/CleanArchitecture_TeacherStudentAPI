@@ -42,6 +42,18 @@ namespace Application.Services.Teachers
                 return ResultFactory.Fail<TeacherDTO>(ErrorType.ValidationError, errors);
             }
 
+
+            //// Check email exists
+            //if (await _unitOfWork.Teachers.ExistsByEmailAsync(DTO.Email))
+            //    return ResultFactory.Fail<TeacherDTO>(ErrorType.ValidationError, "Email already in use.");
+
+            //// Check teacher is banned
+            //if (await _unitOfWork.Teachers.IsBannedAsync(DTO.NationalId))
+            //    return ResultFactory.Fail<TeacherDTO>(ErrorType.ValidationError, "This teacher is banned.");
+
+
+
+
             // 2️ Map to domain & Domain validation
             var domainValidationResult = TeacherDomain.Create(DTO.Name, DTO.Subject,DTO.Salary, DTO.DepartmentId);
             if (!domainValidationResult.IsSuccess)
